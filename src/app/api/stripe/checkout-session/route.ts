@@ -10,6 +10,12 @@ import { updateUserStripeCustomerId } from '@/libs/stripe/webhookHelpers';
  */
 export async function POST(request: NextRequest) {
     try {
+        // Payment Disabled Check
+        return NextResponse.json(
+            { error: 'Payment system is currently disabled for maintenance.' },
+            { status: 503 }
+        );
+
         const body = await request.json();
         const { packageId, userId } = body;
 
