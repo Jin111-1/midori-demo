@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/libs/prisma/prisma';
-import { getOrCreateStripeCustomer, createCheckoutSession } from '@/libs/stripe/stripeService';
-import { getTokenPackage, STRIPE_URLS } from '@/libs/stripe/stripeConfig';
-import { updateUserStripeCustomerId } from '@/libs/stripe/webhookHelpers';
+// import { prisma } from '@/libs/prisma/prisma';
+// import { getOrCreateStripeCustomer, createCheckoutSession } from '@/libs/stripe/stripeService';
+// import { getTokenPackage, STRIPE_URLS } from '@/libs/stripe/stripeConfig';
+// import { updateUserStripeCustomerId } from '@/libs/stripe/webhookHelpers';
 
 /**
  * POST /api/stripe/checkout-session
@@ -16,6 +16,7 @@ export async function POST(request: NextRequest) {
             { status: 503 }
         );
 
+        /*
         const body = await request.json();
         const { packageId, userId } = body;
 
@@ -88,6 +89,7 @@ export async function POST(request: NextRequest) {
             sessionId: session.id,
             url: session.url,
         });
+        */
     } catch (error: any) {
         return NextResponse.json(
             {
